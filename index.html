@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кофейня «Зерно и Пенка» | Крафтовый кофе в Алматы</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            50: '#fdfbf7',
+                            100: '#f7f0e6',
+                            200: '#ebd8c3',
+                            500: '#a37148',
+                            700: '#5c3a21',
+                            800: '#3d2514',
+                            900: '#24140a',
+                        },
+                        amber: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-coffee-50 text-coffee-900 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-coffee-900/95 backdrop-blur text-coffee-100 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo with Tooltip -->
+                <div class="relative group">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-coffee-900 font-bold text-xl group-hover:bg-amber-600 transition">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-wide text-amber-500">Зерно & Пенка</span>
+                    </a>
+                    <!-- Tooltip -->
+                    <div class="absolute left-0 top-full mt-2 hidden group-hover:block bg-coffee-800 text-xs text-coffee-200 px-3 py-1.5 rounded shadow-lg whitespace-nowrap border border-coffee-700 z-50">
+                        📍 г. Алматы, пр. Абая, 42
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#hero" class="hover:text-amber-500 transition">Главная</a>
+                    <a href="#about" class="hover:text-amber-500 transition">О нас</a>
+                    <a href="#menu" class="hover:text-amber-500 transition">Меню</a>
+                    <a href="#contacts" class="hover:text-amber-500 transition">Контакты</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex">
+                    <a href="#booking" class="bg-amber-500 text-coffee-900 px-5 py-2.5 rounded-full font-semibold hover:bg-amber-600 transition shadow-lg">
+                        Забронировать столик
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-coffee-100 hover:text-amber-500 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-coffee-800 border-t border-coffee-700">
+            <div class="px-4 pt-2 pb-6 space-y-3">
+                <a href="#hero" class="block py-2 text-coffee-100 hover:text-amber-500 transition">Главная</a>
+                <a href="#about" class="block py-2 text-coffee-100 hover:text-amber-500 transition">О нас</a>
+                <a href="#menu" class="block py-2 text-coffee-100 hover:text-amber-500 transition">Меню</a>
+                <a href="#contacts" class="block py-2 text-coffee-100 hover:text-amber-500 transition">Контакты</a>
+                <a href="#booking" class="block w-full text-center bg-amber-500 text-coffee-900 py-2.5 rounded-full font-semibold hover:bg-amber-600 transition mt-4">
+                    Забронировать столик
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="hero" class="relative bg-coffee-800 text-white py-24 md:py-36 overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1600');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-coffee-900 via-coffee-900/80 to-transparent z-0"></div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-2xl">
+                    <span class="text-amber-500 uppercase tracking-widest text-sm font-semibold mb-2 block">Крафтовая кофейня в Алматы</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                        Настоящий вкус свежей обжарки
+                    </h1>
+                    <p class="text-lg md:text-xl text-coffee-200 mb-8 leading-relaxed">
+                        Погрузитесь в атмосферу тепла, уюта и бодрящего аромата. Готовим классику и авторские напитки из 100% спешелти арабики.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#menu" class="text-center bg-amber-500 text-coffee-900 px-8 py-3.5 rounded-full font-bold hover:bg-amber-600 transition shadow-lg">
+                            Посмотреть меню
+                        </a>
+                        <a href="#booking" class="text-center border-2 border-coffee-200 text-coffee-100 px-8 py-3.5 rounded-full font-bold hover:bg-coffee-100 hover:text-coffee-900 transition">
+                            Заказать столик
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-coffee-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-coffee-900 mb-4">Почему выбирают нас</h2>
+                    <p class="text-coffee-700 text-lg">Мы относимся к кофе как к искусству — от выбора зерна до идеальной молочной пенки.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center border border-coffee-200 relative group">
+                        <div class="w-16 h-16 bg-coffee-200 text-coffee-800 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-coffee-900 mb-3">Свежая обжарка</h3>
+                        <p class="text-coffee-700 leading-relaxed">
+                            Используем зерна свежей обжарки от лучших обжарщиков Казахстана. Раскрываем максимум вкуса в каждой чашке.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center border border-coffee-200 relative group">
+                        <div class="w-16 h-16 bg-coffee-200 text-coffee-800 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                            <i class="fa-solid fa-mug-saucer"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-coffee-900 mb-3">Авторские рецепты</h3>
+                        <p class="text-coffee-700 leading-relaxed">
+                            Опытные бариста готовят как безупречную классику, так и уникальные сезонные напитки с натуральными соусами.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition text-center border border-coffee-200 relative group">
+                        <div class="w-16 h-16 bg-coffee-200 text-coffee-800 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-coffee-900 mb-3">Комфорт и Wi-Fi</h3>
+                        <p class="text-coffee-700 leading-relaxed">
+                            Быстрый интернет, удобные кресла и розетки у каждого столика — идеальные условия для работы и отдыха.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Menu Section -->
+        <section id="menu" class="py-20 bg-coffee-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-amber-600 font-semibold tracking-wider uppercase text-sm">Наши хиты</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-coffee-900 mt-1 mb-4">Популярное меню</h2>
+                    <p class="text-coffee-700">Наведите на иконку подсказки <i class="fa-solid fa-circle-info text-amber-600"></i>, чтобы узнать детали напитка.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-coffee-200 flex flex-col hover:-translate-y-1 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80&w=600" alt="Фирменный Раф" class="h-52 w-full object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-xl font-bold text-coffee-900">Раф «Солёная карамель»</h3>
+                                    <!-- Interactive Tooltip Icon -->
+                                    <div class="relative group cursor-pointer">
+                                        <i class="fa-solid fa-circle-info text-amber-600 hover:text-amber-700 text-sm"></i>
+                                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-coffee-900 text-white text-xs p-2.5 rounded-lg w-48 shadow-lg z-20 text-center">
+                                            💡 Объём: 350 мл.<br>Состав: Эспрессо, сливки 10%, домашняя карамель, морская соль.
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="bg-coffee-100 text-coffee-800 font-bold px-3 py-1 rounded-full text-sm">1 800 ₸</span>
+                            </div>
+                            <p class="text-coffee-700 text-sm mb-6 flex-grow">Нежнейший сливочный напиток на основе эспрессо с домашней salted caramel и щепоткой морской соли.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-coffee-200 flex flex-col hover:-translate-y-1 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&q=80&w=600" alt="Капучино" class="h-52 w-full object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-xl font-bold text-coffee-900">Классический Капучино</h3>
+                                    <!-- Interactive Tooltip Icon -->
+                                    <div class="relative group cursor-pointer">
+                                        <i class="fa-solid fa-circle-info text-amber-600 hover:text-amber-700 text-sm"></i>
+                                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-coffee-900 text-white text-xs p-2.5 rounded-lg w-48 shadow-lg z-20 text-center">
+                                            💡 Объём: 300 мл.<br>Состав: Двойной эспрессо, взбитое молоко, плотная молочная пенка.
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="bg-coffee-100 text-coffee-800 font-bold px-3 py-1 rounded-full text-sm">1 400 ₸</span>
+                            </div>
+                            <p class="text-coffee-700 text-sm mb-6 flex-grow">Идеальный баланс двойного эспрессо и глянцевой вспененной молочной пенки оптимальной температуры.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-coffee-200 flex flex-col hover:-translate-y-1 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&q=80&w=600" alt="Флэт Уайт" class="h-52 w-full object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-xl font-bold text-coffee-900">Флэт Уайт</h3>
+                                    <!-- Interactive Tooltip Icon -->
+                                    <div class="relative group cursor-pointer">
+                                        <i class="fa-solid fa-circle-info text-amber-600 hover:text-amber-700 text-sm"></i>
+                                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-coffee-900 text-white text-xs p-2.5 rounded-lg w-48 shadow-lg z-20 text-center">
+                                            💡 Объём: 200 мл.<br>Состав: Двойной ристретто, микровспененное бархатистое молоко.
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="bg-coffee-100 text-coffee-800 font-bold px-3 py-1 rounded-full text-sm">1 600 ₸</span>
+                            </div>
+                            <p class="text-coffee-700 text-sm mb-6 flex-grow">Для ценителей насыщенного кофейного вкуса: двойной ристретто с тонким слоем бархатистого молока.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservation Section -->
+        <section id="booking" class="py-16 bg-coffee-800 text-coffee-100">
+            <div class="max-w-3xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-4 text-white">Забронировать столик</h2>
+                <p class="text-coffee-200 mb-8">Забронируйте время и столик заранее. Заполнение формы займёт меньше минуты.</p>
+                
+                <form id="booking-form" class="bg-coffee-900 p-6 md:p-8 rounded-2xl shadow-xl space-y-4 text-left border border-coffee-700">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">
+                                Ваше имя 
+                                <span class="text-amber-500 font-normal text-xs" title="Укажите ваше имя для бронирования">(подсказка: полное имя)</span>
+                            </label>
+                            <input type="text" required placeholder="Нурсултан" class="w-full px-4 py-2.5 rounded-lg bg-coffee-800 border border-coffee-700 text-white focus:outline-none focus:border-amber-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">
+                                Телефон 
+                                <span class="text-amber-500 font-normal text-xs">(для подтверждения)</span>
+                            </label>
+                            <input type="tel" required placeholder="+7 (707) 000-00-00" class="w-full px-4 py-2.5 rounded-lg bg-coffee-800 border border-coffee-700 text-white focus:outline-none focus:border-amber-500">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Дата и время</label>
+                            <input type="datetime-local" required class="w-full px-4 py-2.5 rounded-lg bg-coffee-800 border border-coffee-700 text-white focus:outline-none focus:border-amber-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Количество гостей</label>
+                            <select class="w-full px-4 py-2.5 rounded-lg bg-coffee-800 border border-coffee-700 text-white focus:outline-none focus:border-amber-500">
+                                <option>1-2 человека</option>
+                                <option>3-4 человека</option>
+                                <option>5+ человек (большой стол)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-amber-500 text-coffee-900 font-bold py-3.5 rounded-lg hover:bg-amber-600 transition mt-4 shadow-md">
+                        Подтвердить бронь
+                    </button>
+                    
+                    <div id="booking-msg" class="hidden text-center text-sm bg-amber-500/20 text-amber-400 p-3 rounded-lg mt-2 border border-amber-500/30">
+                        ✓ Заявка успешно принята! Наш администратор свяжется с вами по указанному телефону.
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contacts & Footer -->
+    <footer id="contacts" class="bg-coffee-900 text-coffee-200 pt-16 pb-8 border-t border-coffee-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Location -->
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-coffee-800 flex items-center justify-center text-amber-500 shrink-0 mt-1">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white mb-1">Наш адрес</h4>
+                        <p class="text-sm text-coffee-200">г. Алматы, пр. Абая, д. 42</p>
+                        <span class="text-xs text-amber-500">(рядом с станции метро «Байконур»)</span>
+                    </div>
+                </div>
+
+                <!-- Hours -->
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-coffee-800 flex items-center justify-center text-amber-500 shrink-0 mt-1">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white mb-1">Время работы</h4>
+                        <p class="text-sm text-coffee-200">Пн-Пт: 08:00 – 22:00<br>Сб-Вс: 09:00 – 23:00</p>
+                    </div>
+                </div>
+
+                <!-- Phone & Socials -->
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-coffee-800 flex items-center justify-center text-amber-500 shrink-0 mt-1">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white mb-1">Контакты</h4>
+                        <a href="tel:+77071234567" class="text-sm text-coffee-200 hover:text-amber-500 transition block mb-3">+7 (707) 123-45-67</a>
+                        <div class="flex space-x-3">
+                            <a href="#" class="w-8 h-8 rounded-full bg-coffee-800 flex items-center justify-center text-coffee-200 hover:bg-amber-500 hover:text-coffee-900 transition" title="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 rounded-full bg-coffee-800 flex items-center justify-center text-coffee-200 hover:bg-amber-500 hover:text-coffee-900 transition" title="Telegram">
+                                <i class="fa-brands fa-telegram"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 rounded-full bg-coffee-800 flex items-center justify-center text-coffee-200 hover:bg-amber-500 hover:text-coffee-900 transition" title="WhatsApp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-coffee-800 text-center text-xs text-coffee-200">
+            <p>&copy; 2026 Кофейня «Зерно и Пенка». Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Toggle mobile menu
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking nav links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form submission handler
+        const bookingForm = document.getElementById('booking-form');
+        const bookingMsg = document.getElementById('booking-msg');
+
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            bookingMsg.classList.remove('hidden');
+            bookingForm.reset();
+            setTimeout(() => {
+                bookingMsg.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
