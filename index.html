@@ -343,36 +343,82 @@
         </div>
     </footer>
 
-    <!-- Interactive JavaScript -->
+<!-- Interactive JavaScript with Telegram Integration -->
     <script>
-        // Toggle mobile menu
+        // Переключение мобильного меню
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking nav links
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-        });
+        }
 
-        // Form submission handler
+        // Закрытие меню при клике по ссылке (для мобилок)
+        if (mobileMenu) {
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Настройки Telegram бота
+        const TELEGRAM_BOT_TOKEN = '8823074971:AAGaNB6YKOEIEq3MXngb94flCn0rmSPVfQk';
+        const TELEGRAM_CHAT_ID = 'ВАШ_CHAT_ID'; // <--- Замените на ваши цифры из @userinfobot
+
         const bookingForm = document.getElementById('booking-form');
         const bookingMsg = document.getElementById('booking-msg');
 
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            bookingMsg.classList.remove('hidden');
-            bookingForm.reset();
-            setTimeout(() => {
-                bookingMsg.classList.add('hidden');
-            }, 5000);
-        });
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Считываем значения из формы
+                const inputs = bookingForm.querySelectorAll('input, select');
+                const name = inputs[0].value;
+                const phone = inputs[1].value;
+                const datetime = inputs[2].value;
+                const guests = inputs[3].value;
+
+                // Формируем сообщение для Telegram
+                const text = `☕ *Новая бронь в «Зерно и Пенка»!*\n\n` +
+                             `👤 *Имя:* ${name}\n` +
+                             `📞 *Телефон:* ${phone}\n` +
+                             `📅 *Дата и время:* ${datetime}\n` +
+                             `👥 *Количество гостей:* ${guests}`;
+
+                try {
+                    // Отправляем запрос в Telegram API
+                    const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: TELEGRAM_CHAT_ID,
+                            text: text,
+                            parse_mode: 'Markdown'
+                        })
+                    });
+
+                    if (response.ok) {
+                        bookingMsg.classList.remove('hidden');
+                        bookingForm.reset();
+                        setTimeout(() => {
+                            bookingMsg.classList.add('hidden');
+                        }, 5000);
+                    } else {
+                        alert('Ошибка отправки! Проверьте, нажали ли вы Start в боте и правильно ли указали CHAT_ID.');
+                    }
+                } catch (error) {
+                    alert('Ошибка сети! Проверьте подключение к интернету.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
